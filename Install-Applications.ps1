@@ -21,25 +21,25 @@ function Write-Log {
 #endregion
 
 #region Disable Internet Explorer ESC 
-try {
-     $AdminKey = "HKLM:\SOFTWARE\Microsoft\Active Setup\Installed Components\{A509B1A7-37EF-4b3f-8CFC-4F3A74704073}"
-     Set-ItemProperty -Path $AdminKey -Name "IsInstalled" -Value 0
-     Stop-Process -Name Explorer
-}
-catch {
-    $ErrorMessage = $_.Exception.message
-    write-log "Error disabling IE ESC: $ErrorMessage"
-}
+#try {
+#     $AdminKey = "HKLM:\SOFTWARE\Microsoft\Active Setup\Installed Components\{A509B1A7-37EF-4b3f-8CFC-4F3A74704073}"
+#     Set-ItemProperty -Path $AdminKey -Name "IsInstalled" -Value 0
+#     Stop-Process -Name Explorer
+#}
+#catch {
+#    $ErrorMessage = $_.Exception.message
+#    write-log "Error disabling IE ESC: $ErrorMessage"
+#}
 #endregion
 
 #region Disable Internet Explorer ESC 
-try {
-     [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
-}
-catch {
-    $ErrorMessage = $_.Exception.message
-    write-log "Error ajusting TLS Settings: $ErrorMessage"
-}
+#try {
+#     [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
+#}
+#catch {
+#    $ErrorMessage = $_.Exception.message
+#    write-log "Error ajusting TLS Settings: $ErrorMessage"
+#}
 #endregion
 
 #region Foxit Reader
