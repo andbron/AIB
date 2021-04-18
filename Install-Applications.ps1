@@ -32,6 +32,16 @@ catch {
 }
 #endregion
 
+#region Disable Internet Explorer ESC 
+try {
+     [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
+}
+catch {
+    $ErrorMessage = $_.Exception.message
+    write-log "Error ajusting TLS Settings: $ErrorMessage"
+}
+#endregion
+
 #region Foxit Reader
 try {
     Start-Process -filepath msiexec.exe -Wait -ErrorAction Stop -ArgumentList '/i', 'c:\temp\FoxitReader1013_enu_Setup.msi', '/quiet', 'ADDLOCAL="FX_PDFVIEWER"'
